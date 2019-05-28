@@ -1,0 +1,23 @@
+{
+  "name": "components",
+  "version": "1.0.0",
+  "description": "ui 框架",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shadowsmilezhou/vue-components.git"
+  },
+  "keywords": [
+    "vue",
+    "ui"
+  ],
+  "author": "zhouzhou",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shadowsmilezhou/vue-components/issues"
+  },
+  "homepage": "https://github.com/shadowsmilezhou/vue-components#readme"
+}
