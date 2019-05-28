@@ -1,0 +1,8 @@
+
+.idea/encodings.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/vue-components.iml
+.idea/workspace.xml
+node_modules/
+package-lock.json

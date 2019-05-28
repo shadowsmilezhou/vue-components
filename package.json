@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/shadowsmilezhou/vue-components/issues"
   },
-  "homepage": "https://github.com/shadowsmilezhou/vue-components#readme"
+  "homepage": "https://github.com/shadowsmilezhou/vue-components#readme",
+  "dependencies": {
+    "vue": "^2.6.10"
+  }
 }
