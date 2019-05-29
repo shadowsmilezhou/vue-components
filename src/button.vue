@@ -14,8 +14,12 @@
 </template>
 
 <script>
+    import Icon from './icon'
     export default {
         name: "g-button",
+        components:{
+            "g-icon":Icon
+        },
         props:{
             icon:{
                 type:String,
