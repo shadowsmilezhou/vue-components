@@ -13,7 +13,7 @@
 </template>
 
 <script>
-    import Icon from './icon'
+    import Icon from './g-icon'
     export default {
         name: "g-button",
         components:{

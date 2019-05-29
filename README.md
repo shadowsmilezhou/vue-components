@@ -38,7 +38,7 @@
   ```
 3. 引入 vue-components-smilezhou
   ```
-  import {Button, ButtonGroup, Icon} from 'frank-test-1-1'
+  import {Button, ButtonGroup, Icon} from 'vue-components-smilezhou'
   import 'vue-components-smilezhou/dist/index.css'
 
   export default {
