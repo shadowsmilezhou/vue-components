@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Title</title>
+    <title>g-button</title>
     <style>
         *{margin: 0;padding: 0;box-sizing: border-box}
         :root{
@@ -21,17 +21,18 @@
             margin: 20px;
         }
     </style>
-    <style>
 
-
-    </style>
 </head>
 <body>
 <div id="app">
-    <g-button></g-button>
+    <g-button @click="loading1=!loading1" :loading="loading1">按钮</g-button>
+    <g-button icon="setup" @click="loading2=!loading2" :loading="loading2">按钮</g-button>
+    <g-button icon="setup" icon-position="right" @click="loading3=!loading3" :loading="loading3">按钮</g-button>
+
 </div>
 
 
 <script src="./src/app.js"></script>
+<script src="//at.alicdn.com/t/font_1215958_exdsuepnmv9.js"></script>
 </body>
 </html>
