@@ -1,5 +1,5 @@
 {
-  "name": "components",
+  "name": "vue-ui-components",
   "version": "0.0.1",
   "description": "ui 框架",
   "main": "index.js",
