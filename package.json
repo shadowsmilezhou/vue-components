@@ -27,6 +27,7 @@
   },
   "devDependencies": {
     "@vue/component-compiler-utils": "^3.0.0",
+    "autoprefixer": "^9.5.1",
     "chai": "^4.2.0",
     "chai-spies": "^1.0.0",
     "karma": "^4.1.0",

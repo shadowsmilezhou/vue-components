@@ -3,4 +3,4 @@ import ButtonGroup from './src/g-button-group'
 import Icon from './src/icon'
 
 
-export { ButtonGroup, Button, Icon, }
+export {ButtonGroup, Button, Icon}
