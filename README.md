@@ -1,7 +1,6 @@
 # vue-components-smilezhou - 一个 Vue UI 组件
 
-[![Build Status](https://travis-ci.org/FrankFang/frank-test-1.svg?branch=master)](https://travis-ci.org/FrankFang/frank-test-1)
-
+[![Build Status](https://travis-ci.org/shadowsmilezhou/vue-components.svg?branch=master)](https://travis-ci.org/shadowsmilezhou/vue-components)
 ## 介绍
 
 这是我在学习 Vue 过程中做的一个 UI 框架，希望对你有用。
