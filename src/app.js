@@ -1,13 +1,17 @@
-import  Vue from 'vue'
-import Button from './g-button'
-import Icon from './g-icon'
-import ButtonGroup from './g-button-group'
+import Vue from 'vue'
+import GButton from './g-button'
+import GIcon from './g-icon'
+import GButtonGroup from './g-button-group'
 import Ginput from './g-input'
+import Grow from './g-row'
+import Gcol from './g-col'
 
-Vue.component('g-button',Button);
-Vue.component('g-icon',Icon);
-Vue.component('g-button-group',ButtonGroup);
+Vue.component('g-button',GButton);
+Vue.component('g-icon',GIcon);
+Vue.component('g-button-group',GButtonGroup);
 Vue.component('g-input',Ginput);
+Vue.component('g-row',Grow);
+Vue.component('g-col',Gcol);
 
 
 new Vue({
