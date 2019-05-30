@@ -2,7 +2,7 @@
     <transition name="slide">
         <div :class="[`sider`,{slideChange}]" >
             <slot></slot>
-            <button @click="slideChange=!slideChange">close</button>
+            <button @click="changeWidthHandle">{{text}}</button>
         </div>
     </transition>
 </template>
@@ -11,10 +11,21 @@
         name: 'g-slider',
         data () {
             return {
-                slideChange: false
+                slideChange: false,
+                text:'close'
             }
         },
         methods: {
+            changeWidthHandle(){
+                this.slideChange =  !this.slideChange
+                if (this.text !== 'open'){
+                    this.text = 'open'
+                }
+                else {
+                    this.text = 'close'
+                }
+
+            }
         }
     }
 </script>
