@@ -66,7 +66,7 @@ describe('测试button',()=>{
         vm.$destroy()
     });
     it('点击 button 触发 click 事件', () => {
-        const Constructor = Vue.extend(Button)
+        const Constructor = Vue.extend(Button);
         const vm = new Constructor({
             propsData: {
                 icon: 'settings',
