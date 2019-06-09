@@ -89,52 +89,7 @@
 
 
                 })
-            },
-            showToastCorrect(){
-                this.$toast(`正确提示`,{
-                    enableHtml: "true",
-                    remindMessage: "correct",
-                    position:'top',
-                    closeButton: {
-                        text:'关闭',
-                        callback:()=>{
-                            alert('success')
-                        }
-                    },
-
-
-                })
-            },
-            showToastWarning(){
-                this.$toast(`警告，您不能这样做`,{
-                    enableHtml: "true",
-                    position:'middle',
-                    remindMessage: "warning",
-                    closeButton: {
-                        text:'关闭',
-                        callback:()=>{
-                            alert('success')
-                        }
-                    },
-
-
-                })
-            },
-            showToastReminding(){
-                this.$toast(`这是一条友善的提醒`,{
-                    enableHtml: "true",
-                    position:'bottom',
-                    remindMessage: "reminding",
-                    closeButton: {
-                        text:'关闭',
-                        callback:()=>{
-                            alert('success')
-                        }
-                    },
-
-
-                })
-            },
+            }
         }
 
     }

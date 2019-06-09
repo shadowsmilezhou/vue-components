@@ -1,36 +1,72 @@
 <template>
+    <div id="app" style="padding-left: 100px;">
 
-<div>
-    <g-button @click="onClickTop">top</g-button>
-    <g-button @click="onClickLeft">left</g-button>
-    <g-tabs :selected.sync="selectedTab" :direction="direction">
-        <g-tabs-head>
-            <template slot="actions">
-                <g-button icon="setup">设置</g-button>
-            </template>
-            <g-tabs-item name="woman">
-                <g-icon name="women"></g-icon>美女
-            </g-tabs-item>
-            <g-tabs-item name="finance">
-                <g-icon name="finance"></g-icon>财经
-            </g-tabs-item>
-            <g-tabs-item name="sports">
-                <g-icon name="sports"></g-icon>体育
-            </g-tabs-item>
-        </g-tabs-head>
-        <g-tabs-body>
-            <g-tabs-panel name="woman">
-                美女相关资讯
-            </g-tabs-panel>
-            <g-tabs-panel name="finance">
-                财经相关资讯
-            </g-tabs-panel>
-            <g-tabs-panel name="sports">
-                体育相关资讯
-            </g-tabs-panel>
-        </g-tabs-body>
-    </g-tabs>
-</div>
+        <div style="overflow: hidden; padding-top: 150px; padding-bottom: 40px;">
+            <g-popover position="bottom">
+                <template slot="content" slot-scope="{close}">
+                    <div>文字</div>
+                    <div>popover <a href="http://qq.com">看新网</a> 内容</div>
+                    <g-button @click="close">关闭</g-button>
+                </template>
+                <g-button>点我</g-button>
+            </g-popover>
+
+
+            <g-popover position="top">
+                <template slot="content" slot-scope="value">
+                    <div>
+                       <div>简介：  smilezhou</div>
+                        <div> github：<a href="https://github.com/shadowsmilezhou/vue-components">项目源码</a></div>
+                    </div>
+                    <g-button @click="value.close">关闭</g-button>
+                </template>
+                <g-button>点我</g-button>
+            </g-popover>
+
+
+
+
+            <g-popover position="left">
+                <template slot="content">
+                    <div>popover内容</div>
+                </template>
+                <g-button>点我</g-button>
+            </g-popover>
+            <g-popover position="right">
+                <template slot="content">
+                    <div>popover内容</div>
+                </template>
+                <g-button>点我</g-button>
+            </g-popover>
+        </div>
+        <div style="overflow: hidden; padding-bottom: 150px;">
+            <g-popover position="bottom" trigger="hover">
+                <template slot="content">
+                        <div>hello，world</div>
+                </template>
+                <g-button>点我</g-button>
+            </g-popover>
+            <g-popover position="top" trigger="hover">
+                <template slot="content">
+                    <div>popover内容</div>
+                </template>
+                <g-button>点我</g-button>
+            </g-popover>
+            <g-popover position="left" trigger="hover">
+                <template slot="content">
+                    <div>popover内容</div>
+                </template>
+                <g-button>点我</g-button>
+            </g-popover>
+            <g-popover position="right" trigger="hover">
+                <template slot="content">
+                    <div>popover <a href="http://qq.com">详情请看这个链接</a> 内容</div>
+                </template>
+                <g-button>点我</g-button>
+            </g-popover>
+        </div>
+
+    </div>
 </template>
 
 <script>
@@ -46,6 +82,7 @@ import GTabsBody from './g-tabs/g-tabs-body'
 import GtabsHead from './g-tabs/g-tabs-head'
 import GtabsPanel from './g-tabs/g-tabs-panel'
 import GIcon from './g-icon/g-icon'
+import GPopover from './g-popover/g-popover'
 
 Vue.use(plugin);
 export default {
@@ -58,7 +95,8 @@ export default {
         'g-tabs-item':GtabsItem,
         'g-tabs-head':GtabsHead,
         'g-tabs-panel':GtabsPanel,
-        'g-icon':GIcon
+        'g-icon':GIcon,
+        'g-popover':GPopover
     },
     data(){
       return {
