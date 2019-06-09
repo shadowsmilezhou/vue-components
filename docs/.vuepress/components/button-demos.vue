@@ -14,7 +14,7 @@
 </template>
 
 <script>
-    import Button from  '../../../src/g-button'
+    import Button from '../../../src/g-button/g-button'
     export default {
         name: "button-demos.vue",
         components:{

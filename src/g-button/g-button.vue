@@ -13,7 +13,7 @@
 </template>
 
 <script>
-    import Icon from './g-icon'
+    import Icon from '../g-icon/g-icon'
     export default {
         name: "g-button",
         components:{
@@ -41,16 +41,7 @@
 
 <style lang="scss" scoped>
 
-
-    $font-size:14px;
-    $button-height: 32px;
-    $background-color: white;
-    $border-radius: 4px;
-    $border-color-hover:#666;
-    $button-active-bg:#eee;
-    $button-bg:white;
-    $color:#333;
-    $border-color:#999;
+    @import "../../styles/_var.scss";
     @keyframes waiting {
         0%{
             transform: rotate(0deg);
@@ -66,7 +57,7 @@
         vertical-align: middle;
         font-size: $font-size;
         border: 1px solid $border-color;
-        background-color:$background-color ;
+        background-color:$button-bg ;
         border-radius: $border-radius;
         height: $button-height;
         padding: 0 1em;
