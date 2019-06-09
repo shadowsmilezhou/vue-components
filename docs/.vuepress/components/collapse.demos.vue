@@ -19,20 +19,14 @@
 
 
     import Vue from 'vue'
-    import GToast from './g-toast/g-toast'
-    import plugin from './g-toast/plugin'
-    import GIcon from './g-icon/g-icon'
-    import GPopover from './g-popover/g-popover'
-    import GCollapse from './g-collapse/g-collapse'
-    import GCollapseItem from './g-collapse/g-collapse-item'
+
+    import GCollapse from '../../../src/g-collapse/g-collapse'
+    import GCollapseItem from '../../../src/g-collapse/g-collapse-item'
 
     Vue.use(plugin);
     export default {
         name:'GToast',
         components:{
-            'g-toast':GToast,
-            'g-icon':GIcon,
-            'g-popover':GPopover,
             'g-collapse':GCollapse,
             'g-collapse-item':GCollapseItem,
         },

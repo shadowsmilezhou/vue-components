@@ -3,9 +3,11 @@
     <div class="title" @click="toggle" :data-name="name">
       {{title}}
     </div>
+    <transition name="slide">
     <div class="content" ref="content" v-if="open">
       <slot></slot>
     </div>
+    </transition>
   </div>
 </template>
 
@@ -53,6 +55,18 @@
   @import "../../styles/_var.scss";
   $grey: #ddd;
   $border-radius: 4px;
+  @keyframes slidein {
+      0%{
+        opacity: 0;
+      }
+      100%{
+        opacity: 1;
+      }
+  }
+  .slide-enter-active {
+    animation: slidein 100ms ;
+  }
+
   .collapseItem {
     > .title { border: 1px solid black; margin-top: -1px; margin-left: -1px; margin-right: -1px;
       min-height: 32px; display: flex; align-items: center; padding: 0 8px;
