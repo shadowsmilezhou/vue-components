@@ -1,70 +1,16 @@
 <template>
-    <div id="app" style="padding-left: 100px;">
-
-        <div style="overflow: hidden; padding-top: 150px; padding-bottom: 40px;">
-            <g-popover position="bottom">
-                <template slot="content" slot-scope="{close}">
-                    <div>文字</div>
-                    <div>popover <a href="http://qq.com">看新网</a> 内容</div>
-                    <g-button @click="close">关闭</g-button>
-                </template>
-                <g-button>点我</g-button>
-            </g-popover>
-
-
-            <g-popover position="top">
-                <template slot="content" slot-scope="value">
-                    <div>
-                       <div>简介：  smilezhou</div>
-                        <div> github：<a href="https://github.com/shadowsmilezhou/vue-components">项目源码</a></div>
-                    </div>
-                    <g-button @click="value.close">关闭</g-button>
-                </template>
-                <g-button>点我</g-button>
-            </g-popover>
-
-
-
-
-            <g-popover position="left">
-                <template slot="content">
-                    <div>popover内容</div>
-                </template>
-                <g-button>点我</g-button>
-            </g-popover>
-            <g-popover position="right">
-                <template slot="content">
-                    <div>popover内容</div>
-                </template>
-                <g-button>点我</g-button>
-            </g-popover>
-        </div>
-        <div style="overflow: hidden; padding-bottom: 150px;">
-            <g-popover position="bottom" trigger="hover">
-                <template slot="content">
-                        <div>hello，world</div>
-                </template>
-                <g-button>点我</g-button>
-            </g-popover>
-            <g-popover position="top" trigger="hover">
-                <template slot="content">
-                    <div>popover内容</div>
-                </template>
-                <g-button>点我</g-button>
-            </g-popover>
-            <g-popover position="left" trigger="hover">
-                <template slot="content">
-                    <div>popover内容</div>
-                </template>
-                <g-button>点我</g-button>
-            </g-popover>
-            <g-popover position="right" trigger="hover">
-                <template slot="content">
-                    <div>popover <a href="http://qq.com">详情请看这个链接</a> 内容</div>
-                </template>
-                <g-button>点我</g-button>
-            </g-popover>
-        </div>
+    <div id="app" style="padding: 100px;">
+        <g-collapse :selected.sync="selectedTab" :single="true">
+            <g-collapse-item title="标题1" name="1">
+                这是标题一展示的内容
+            </g-collapse-item>
+            <g-collapse-item title="标题2" name="2">
+                这是标题二展示的内容
+            </g-collapse-item>
+            <g-collapse-item title="标题3" name="3">
+                这是标题三展示的内容
+            </g-collapse-item>
+        </g-collapse>
 
     </div>
 </template>
@@ -75,33 +21,27 @@
 import Vue from 'vue'
 import GToast from './g-toast/g-toast'
 import plugin from './g-toast/plugin'
-import gbutton from './g-button/g-button'
-import Gtabs from './g-tabs/g-tabs'
-import GtabsItem from './g-tabs/g-tabs-item'
-import GTabsBody from './g-tabs/g-tabs-body'
-import GtabsHead from './g-tabs/g-tabs-head'
-import GtabsPanel from './g-tabs/g-tabs-panel'
 import GIcon from './g-icon/g-icon'
 import GPopover from './g-popover/g-popover'
+import GCollapse from './g-collapse/g-collapse'
+import GCollapseItem from './g-collapse/g-collapse-item'
 
 Vue.use(plugin);
 export default {
     name:'GToast',
     components:{
         'g-toast':GToast,
-        'g-button':gbutton,
-        'g-tabs':Gtabs,
-        'g-tabs-body':GTabsBody,
-        'g-tabs-item':GtabsItem,
-        'g-tabs-head':GtabsHead,
-        'g-tabs-panel':GtabsPanel,
         'g-icon':GIcon,
-        'g-popover':GPopover
+        'g-popover':GPopover,
+        'g-collapse':GCollapse,
+        'g-collapse-item':GCollapseItem,
     },
     data(){
       return {
-          selectedTab:'sports',
-          direction:'vertical'
+          selectedTab:['1'],
+          direction:'vertical',
+          title:'',
+          name:''
       }
     },
     methods:{
