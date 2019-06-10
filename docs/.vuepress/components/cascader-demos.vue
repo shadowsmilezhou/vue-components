@@ -13,14 +13,8 @@
 
 
     import Vue from 'vue'
-    import GToast from './g-toast/g-toast'
-    import plugin from './g-toast/plugin'
-    import GIcon from './g-icon/g-icon'
-    import GPopover from './g-popover/g-popover'
-    import GCollapse from './g-collapse/g-collapse'
-    import GCollapseItem from './g-collapse/g-collapse-item'
-    import GCascader from './g-cascader/g-cascader'
-    import db from '../test/fixtures/db'
+    import GCascader from '../../../src/g-cascader/g-cascader'
+    import db from '../../../test/fixtures/db'
 
     function ajax(parentId = 0) {
         return new Promise((success, fail) => {
@@ -44,11 +38,6 @@
     export default {
         name:'GToast',
         components:{
-            'g-toast':GToast,
-            'g-icon':GIcon,
-            'g-popover':GPopover,
-            'g-collapse':GCollapse,
-            'g-collapse-item':GCollapseItem,
             'g-cascader':GCascader,
         },
         data(){
