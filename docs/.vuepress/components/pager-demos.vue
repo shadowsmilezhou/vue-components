@@ -1,10 +1,10 @@
 <template>
-    <div style="margin: 20px;">
-        <g-pager :total-page="10" :current-page.sync="currentPage"></g-pager>
-    </div>
+  <div style="margin: 20px;">
+    <g-pager :total-page="10" :current-page.sync="currentPage"></g-pager>
+  </div>
 </template>
 <script>
-    import GPager from './g-pagers/g-pagers'
+    import GPager from '../../../src/g-pagers/g-pagers'
     export default {
         name: "demo",
         components: {GPager},
