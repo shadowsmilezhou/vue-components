@@ -1,17 +1,11 @@
 <template>
-    <div id="app" style="padding: 100px;">
-        <g-collapse :selected.sync="selectedTab" :single="true">
-            <g-collapse-item title="标题1" name="1">
-                这是标题一展示的内容
-            </g-collapse-item>
-            <g-collapse-item title="标题2" name="2">
-                这是标题二展示的内容
-            </g-collapse-item>
-            <g-collapse-item title="标题3" name="3">
-                这是标题三展示的内容
-            </g-collapse-item>
-        </g-collapse>
+    <div>
+        <div style="padding: 20px;">
+            <g-cascader :source.sync="source" popover-height="300px"
+                        :selected.sync="selected" :load-data="loadData">
 
+            </g-cascader>
+        </div>
     </div>
 </template>
 
@@ -25,6 +19,26 @@ import GIcon from './g-icon/g-icon'
 import GPopover from './g-popover/g-popover'
 import GCollapse from './g-collapse/g-collapse'
 import GCollapseItem from './g-collapse/g-collapse-item'
+import GCascader from './g-cascader/g-cascader'
+import db from '../test/fixtures/db'
+
+function ajax(parentId = 0) {
+    return new Promise((success, fail) => {
+        setTimeout(() => {
+            let result = db.filter((item) => item.parent_id == parentId);
+            result.forEach(node => {
+                if (db.filter(item => item.parent_id === node.id).length > 0) {
+                    node.isLeaf = false
+                }else{
+                    node.isLeaf = true
+                }
+            });
+
+            success(result)
+        }, 1000)
+    })
+}
+
 
 Vue.use(plugin);
 export default {
@@ -35,16 +49,30 @@ export default {
         'g-popover':GPopover,
         'g-collapse':GCollapse,
         'g-collapse-item':GCollapseItem,
+        'g-cascader':GCascader,
     },
     data(){
       return {
           selectedTab:['1'],
           direction:'vertical',
           title:'',
-          name:''
+          name:'',
+          selected:[],
+          source:[]
       }
     },
+    created(){
+        ajax(0).then(result => {
+            this.source = result
+
+        })
+    },
     methods:{
+        loadData ({id}, updateSource) {
+            ajax(id).then(result => {
+                updateSource(result) // 回调:把别人传给我的函数调用一下
+            })
+        },
         onClickTop(){
             this.direction = 'horizontal';
 
