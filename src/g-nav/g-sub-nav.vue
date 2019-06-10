@@ -97,6 +97,7 @@
   @import "../../styles/_var.scss";
   .g-sub-nav {
     position: relative;
+    cursor: pointer;
     &:not(.vertical) {
       &.active {
         &::after {

@@ -78,6 +78,8 @@
     &.vertical {
       flex-direction: column;
       border: 1px solid $bgc-color;
+      width: 200px;
+      height: 300px;
     }
   }
 

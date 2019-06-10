@@ -39,6 +39,7 @@
   .g-nav-item {
     padding: 10px 20px;
     position: relative;
+    cursor: pointer;
     &:not(.vertical) {
       &.selected {
         &::after {

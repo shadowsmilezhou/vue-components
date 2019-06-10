@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div >
     <g-nav :selected.sync="selected" :vertical="true" >
       <g-nav-item name="home">首页</g-nav-item>
       <g-sub-nav name="about">
