@@ -1,6 +1,6 @@
 <template>
     <div>
-        <g-nav :selected.sync="selected">
+        <g-nav :selected.sync="selected" :vertical="true" >
             <g-nav-item name="home">首页</g-nav-item>
             <g-sub-nav name="about">
                 <template slot="title">关于</template>
@@ -19,25 +19,33 @@
                 </g-sub-nav>
 
             </g-sub-nav>
-            <g-nav-item name="hire">招聘</g-nav-item>
+            <g-sub-nav name="hire">
+                <template slot="title">招聘</template>
+                <g-nav-item name="culture">精英团队</g-nav-item>
+                <g-nav-item name="developers">实习生</g-nav-item>
+            </g-sub-nav>
         </g-nav>
-        <p>你好，我是中文</p>
     </div>
 </template>
 <script>
     import GNav from '../src/g-nav/g-nav.vue'
-    import GNavItem from '../src/g-nav/g-sub-nav.vue'
-    import GSubNav from '../src/g-nav/g-nav-item.vue'
+    import GNavItem from '../src/g-nav/g-nav-item.vue'
+    import GSubNav from '../src/g-nav/g-sub-nav.vue'
     export default {
         name: "demo",
-        components: {GNav, GNavItem, GSubNav},
+        components: {
+            GNav,
+            GNavItem,
+            GSubNav
+        },
         data () {
             return {
-                selected: ['culture']
+                selected: 'culture'
             };
         },
     };
 </script>
+
 <style>
     * {margin: 0; padding: 0; box-sizing: border-box;}
 </style>
