@@ -6,7 +6,7 @@
         @focus="$emit('focus',$event.target.value)"
         @blur="$emit('blur',$event.target.value)"
         :disabled="disabled" :readonly="readonly"
-
+        ref="input"
         >
         <template v-if="error">
             <g-icon name="error" class="icon-error"></g-icon>
@@ -38,6 +38,11 @@
             },
             error:{
                 type:String,
+            }
+        },
+        methods:{
+            setRawValue(val){
+                this.$refs.input.value = val
             }
         }
     }

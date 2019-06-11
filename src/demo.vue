@@ -1,101 +1,36 @@
 <template>
-
-    <div>
-
-        <p>文本</p>
-        <p>文本</p>
-        <p>文本</p>
-        <p>文本</p>
-        <p>文本</p>
-        <p>文本</p>
-        <p>文本</p>
-        <p>文本</p>
-        <p>文本</p>
-        <p>文本</p>
-        <p>文本</p>
-        <p>文本</p>
-        <p>文本</p>
-        <p>文本</p>
-        <p>文本</p>
-        <p>文本</p>
-        <p>文本</p>
-        <p>文本</p>
-        <p>文本</p>
-        <p>文本</p>
-        <p>文本</p>
-    <div style="display: flex; justify-content: center;">
-        <div style="width: 600px">
-            <g-sticky :distance="0">
-                <div style="width: 100%;height: 50px;background-color: #2196F3;"></div>
-            </g-sticky>
-        </div>
+    <div class="page" style="position:relative;">
+        <g-date-picker :value="d" @input="d = $event" :scope="scope"></g-date-picker>
+        <p>其他内容</p>
     </div>
-        <p>文本</p>
-        <p>文本</p>
-        <p>文本</p>
-        <p>文本</p>
-        <p>文本</p>
-        <p>文本</p>
-        <p>文本</p>
-        <p>文本</p>
-        <p>文本</p>
-        <p>文本</p>
-        <p>文本</p>
-        <p>文本</p>
-        <p>文本</p>
-        <p>文本</p>
-        <p>文本</p>
-        <p>文本</p>
-        <p>文本</p>
-        <p>文本</p>
-        <p>文本</p>
-        <p>文本</p>
-        <p>文本</p>
-        <p>文本</p>
-        <p>文本</p>
-        <p>文本</p>
-        <div style="display: flex; justify-content: center;">
-            <div style="width: 600px">
-                <g-sticky :distance="100">
-                    <div style="width: 100%;height: 50px;background-color: #1976D2;"></div>
-                </g-sticky>
-            </div>
-        </div>
-        <p>文本</p>
-        <p>文本</p>
-        <p>文本</p>
-        <p>文本</p>
-        <p>文本</p>
-        <p>文本</p>
-        <p>文本</p>
-        <p>文本</p>
-        <p>文本</p>
-        <p>文本</p>
-        <p>文本</p>
-        <p>文本</p>
-        <p>文本</p>
-        <p>文本</p>
-        <p>文本</p>
-        <p>文本</p>
-
-    </div>
-
-
 </template>
-
+<style>
+    .page {
+        padding: 100px;
+    }
+</style>
 <script>
-    import GSticky from './g-sticky/g-sticky'
+    import GDatePicker from "./g-datepicker/g-datepicker";
+    // import GDateRangePicker from "./date-picker/date-range-picker";
     export default {
         name: "demo",
-        components: {GSticky},
+        components: { GDatePicker},
+        data() {
+            return {
+                d: new Date(),
+                scope: [new Date(1958, 1), new Date(2118, 5)]
+            };
+        }
     };
 </script>
 <style>
-    * {margin: 0; padding: 0; box-sizing: border-box;}
-    body {background: white;}
-    img {max-width: 100%;}
-    p{
-        text-align: center;
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body {
+        background: white;
     }
 </style>
 <style scoped lang="scss">

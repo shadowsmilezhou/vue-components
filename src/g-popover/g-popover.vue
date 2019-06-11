@@ -73,7 +73,6 @@
                 })
             },
             close() {
-                console.log('主动关闭');
                 this.visible = false;
                 if(this.trigger === 'click'){
                     document.removeEventListener('click', this.onClickDocument)
