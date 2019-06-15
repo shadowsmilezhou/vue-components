@@ -1,6 +1,6 @@
 <template>
     <transition name="slide">
-        <div :class="[`sider`,{slideChange}]" >
+        <div :class="[`slider`,{slideChange}]" >
             <slot></slot>
             <button @click="changeWidthHandle">{{text}}</button>
         </div>
@@ -17,7 +17,7 @@
         },
         methods: {
             changeWidthHandle(){
-                this.slideChange =  !this.slideChange
+                this.slideChange =  !this.slideChange;
                 if (this.text !== 'open'){
                     this.text = 'open'
                 }
@@ -31,19 +31,20 @@
 </script>
 
 <style lang="scss" scoped>
-    .sider {
+    .slider {
         position: relative;
+        transition: all .5s;
         > button {
             position: absolute;
             top: 0;
             right: 0;
         }
     }
-    .slideChange {
+    .slideChange.slider {
         width: 3%;
     }
     .slide-enter-active, .slide-leave-active {
-        transition: all .3s;
+        transition: all 1s;
     }
     .slide-enter, .slide-leave-to {
         margin-left: -50px;

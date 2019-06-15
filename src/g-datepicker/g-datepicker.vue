@@ -1,5 +1,5 @@
 <template>
-  <div class="g-date-picker" style="border: 1px solid #2196F3;" ref="wrapper">
+  <div class="g-date-picker" style="display: inline-block;" ref="wrapper">
     <g-popover ref="popover" position="bottom" :container="popoverContainer" @open="onOpen">
       <g-input type="text"  :value="formattedValue" @input="onInput" @change="onChange" ref="input"/>
 
@@ -39,7 +39,10 @@
                       <option v-for="year in years" :value="year" :key="year">{{year}}</option>
                     </select><span style="position: absolute;left:40%;top: 45%;">年</span>
 
-                    <select @change="onSelectMonth" :value="display.month" class="onSelectMonth">
+                    <select @change="onSelectMonth" :value="display.month" class="onSelectMonth"
+                            onmousedown="if(this.options.length>10){this.size=10}" onblur="this.size=0" onchange="this.size=0"
+
+                    >
                       <option
                               v-for="month in helper.range(0,12)"
                               :value="month"
@@ -325,9 +328,12 @@
         position: absolute;
         top: 45%;
         left: 12%;
+        z-index: 1;
         option {
           display: block;
-          margin: 10px 12px 10px 10px;
+          padding: 5px 6px 5px 5px;
+          border-bottom: 1px solid #7f7f7f;
+          text-align: center;
           &:hover {
             background-color: $bgc-color;
           }
@@ -336,6 +342,16 @@
       .onSelectMonth {
         position: absolute;
         top: 45%;
+        option {
+          display: block;
+          padding: 5px 6px 5px 5px;
+          width: 50px;
+          border-bottom: 1px solid #7f7f7f;
+          text-align: center;
+          &:hover {
+            background-color: $bgc-color;
+          }
+        }
 
       }
     }
