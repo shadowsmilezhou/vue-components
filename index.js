@@ -1,9 +1,6 @@
+import Button from './src/button'
+import ButtonGroup from './src/g-button/g-button-group'
+import Icon from './src/icon'
 
 
-let app = (function () {
-    let test = 1;
-    return (function () {
-        console.log(test);
-    })()
-})();
-
+export {ButtonGroup, Button, Icon}
