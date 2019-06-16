@@ -51,7 +51,7 @@
             },
             color:{
                 type:String,
-                default:'#2196F3'
+                default:'#AFB42B'
             }
         },
         computed: {
@@ -103,7 +103,7 @@
       min-width: $width; height: $height;font-size: $font-size;
       border: 1px solid #e1e1e1; border-radius: $border-radius; padding: 0 4px; display: inline-flex; justify-content: center;
       align-items: center; margin: 0 4px; cursor: pointer;
-      &.current, &:hover { border-color: $blue; }
+      &.current, &:hover { border-color: $bgc-color; }
       &.current { cursor: default; }
     }
     &-nav {

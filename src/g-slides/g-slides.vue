@@ -150,6 +150,9 @@
 
             },
             playAutomatically() {
+                if (!this.autoPlay){
+                    return
+                }
                 if (this.timerId) {
                     return
                 }
@@ -208,7 +211,7 @@
           cursor: pointer;
         }
         &.active {
-          background: $blue;
+          background: #CDDC39;
           color: white;
           &:hover {
             cursor: default;

@@ -5,7 +5,7 @@
     </div>
 
     <ol class="g-uploader-fileList">
-      <transition name="fade">
+      <transition-group name="fade">
         <li v-for="file in fileList" :key="file.name">
 
           <template v-if="file.status === 'uploading'">
@@ -18,16 +18,18 @@
           </template>
 
           <temaplte v-else>
-            <div class="g-uploader-defaultImage"></div>
+            <div class="g-uploader-defaultImage">
+              <g-icon name="Over" class="g-uploader-spin"></g-icon>
+            </div>
           </temaplte>
 
 
           <span class="g-uploader-name" :class="{[file.status]: file.status}">{{file.name}}</span>
-          <div class="g-uploader-remove" @click="onRemoveFile(file)">
-            <g-icon name="delete" class="g-uploader-delete"></g-icon>
+          <div class="g-uploader-remove" @click="onRemoveFile(file)" style="display: inline-block;text-align: center;">
+            <g-icon name="delete" class="g-uploader-delete" style="width: 1em;height: 1em;"></g-icon>
           </div>
         </li>
-      </transition>
+      </transition-group>
     </ol>
 
     <div ref="temp" style="width: 0; height: 0; overflow: hidden;"></div>
@@ -115,6 +117,7 @@
                         this.url = url;
                         this.afterUploadFiles(newName, url)
                     }, (xhr) => {
+                        console.log('error');
                         this.uploadError(xhr, newName)
                     })
                 }
@@ -166,8 +169,7 @@
 
 
             doUploadFiles(formData, success, fail) {
-                console.log('this action');
-                console.log(this.action);
+
                 http[this.method.toLowerCase()](this.action, {success, fail, data: formData})
             },
 

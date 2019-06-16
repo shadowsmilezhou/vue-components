@@ -3,8 +3,8 @@
     <div style="padding: 20px;">
       <g-cascader :source.sync="source" popover-height="300px"
                   :selected.sync="selected" :load-data="loadData">
-
       </g-cascader>
+
     </div>
   </div>
 </template>
@@ -12,7 +12,6 @@
 <script>
 
 
-    import Vue from 'vue'
     import GCascader from '../../../src/g-cascader/g-cascader'
     import db from '../../../test/fixtures/db'
 
@@ -34,7 +33,6 @@
     }
 
 
-    Vue.use(plugin);
     export default {
         name:'GToast',
         components:{
@@ -60,74 +58,6 @@
             loadData ({id}, updateSource) {
                 ajax(id).then(result => {
                     updateSource(result) // 回调:把别人传给我的函数调用一下
-                })
-            },
-            onClickTop(){
-                this.direction = 'horizontal';
-
-            },
-            onClickLeft(){
-                this.direction = 'vertical';
-
-            },
-
-            showToastError(){
-                this.$toast(`错误提示`,{
-                    enableHtml: "true",
-                    remindMessage: "error",
-                    closeButton: {
-                        text:'关闭',
-                        callback:()=>{
-                            alert('success')
-                        }
-                    },
-
-
-                })
-            },
-            showToastCorrect(){
-                this.$toast(`正确提示`,{
-                    enableHtml: "true",
-                    remindMessage: "correct",
-                    position:'top',
-                    closeButton: {
-                        text:'关闭',
-                        callback:()=>{
-                            alert('success')
-                        }
-                    },
-
-
-                })
-            },
-            showToastWarning(){
-                this.$toast(`警告，您不能这样做`,{
-                    enableHtml: "true",
-                    position:'middle',
-                    remindMessage: "warning",
-                    closeButton: {
-                        text:'关闭',
-                        callback:()=>{
-                            alert('success')
-                        }
-                    },
-
-
-                })
-            },
-            showToastReminding(){
-                this.$toast(`这是一条友善的提醒`,{
-                    enableHtml: "true",
-                    position:'bottom',
-                    remindMessage: "reminding",
-                    closeButton: {
-                        text:'关闭',
-                        callback:()=>{
-                            alert('success')
-                        }
-                    },
-
-
                 })
             },
         }

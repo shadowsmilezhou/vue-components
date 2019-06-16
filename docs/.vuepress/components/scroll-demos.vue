@@ -1,6 +1,5 @@
 <template>
-  <div class="page" style="position:relative;">
-    <div id="test" class="test">test</div>
+  <div>
     <g-scroll style="width: 300px; height: 400px;">
       <p>文字</p>
       <p>文字</p>
@@ -33,7 +32,7 @@
       <p>文字</p>
       <p>文字</p>
       <p>文字</p>
-      <img dataSrc="https://www.guidedogs.org/wp-content/uploads/2017/07/2O17-8819-purple-2-min-400x400.jpg" alt="">
+      <img src="http://zxkj.whzxkj.net/house.png" alt="">
       <p>文字</p>
       <p>文字</p>
       <p>文字</p>
@@ -53,19 +52,97 @@
       <p>文字</p>
       <p>文字</p>
       <p>文字</p>
-      <img dataSrc="https://www.guidedogs.org/wp-content/uploads/2017/07/2O17-8819-purple-2-min-400x400.jpg" alt="">
+      <img src="http://zxkj.whzxkj.net/house.png" alt="">
 
 
     </g-scroll>
+
+    <div style="margin: 20px 0;">
+      <g-popover position="top" trigger="hover">
+        <template slot="content">
+          <div>查看代码</div>
+        </template>
+        <g-button style="border-color: black" @click="displayName" icon="desc" icon-position="right">滚动组件</g-button>
+      </g-popover>
+      <pre v-if="nameVisible"><code>{{name}}</code></pre>
+    </div>
 
   </div>
 </template>
 <script>
 
     import GScroll from '../../../src/g-scroll/g-scroll'
+    import GButton from '../../../src/g-button/g-button'
+    import GPopover from '../../../src/g-popover/g-popover'
     export default {
         name: "demo",
-        components: {GScroll}
+        components: {GScroll,GButton,GPopover},
+        methods:{
+            displayName(){
+                this.nameVisible = !this.nameVisible
+            }
+        },
+        data(){
+            return {
+                nameVisible:false,
+                name:`
+      <g-scroll style="width: 300px; height: 400px;">
+      <p>文字</p>
+      <p>文字</p>
+      <p>文字</p>
+      <p>文字</p>
+      <p>文字</p>
+      <p>文字</p>
+      <p>文字</p>
+      <p>文字</p>
+      <p>文字</p>
+      <p>文字</p>
+      <p>文字</p>
+      <p>文字</p>
+      <p>文字</p>
+      <p>文字</p>
+      <p>文字</p>
+      <p>文字</p>
+      <p>文字</p>
+      <p>文字</p>
+      <p>文字</p>
+      <p>文字</p>
+      <p>文字</p>
+      <p>文字</p>
+      <p>文字</p>
+      <p>文字</p>
+      <p>文字</p>
+      <p>文字</p>
+      <p>文字</p>
+      <p>文字</p>
+      <p>文字</p>
+      <p>文字</p>
+      <p>文字</p>
+      <img src="http://zxkj.whzxkj.net/house.png" alt="">
+      <p>文字</p>
+      <p>文字</p>
+      <p>文字</p>
+      <p>文字</p>
+      <p>文字</p>
+      <p>文字</p>
+      <p>文字</p>
+      <p>文字</p>
+      <p>文字</p>
+      <p>文字</p>
+      <p>文字</p>
+      <p>文字</p>
+      <p>文字</p>
+      <p>文字</p>
+      <p>文字</p>
+      <p>文字</p>
+      <p>文字</p>
+      <p>文字</p>
+      <p>文字</p>
+      <img src="http://zxkj.whzxkj.net/house.png" alt="">
+
+                `
+            }
+        }
     };
 </script>
 <style>

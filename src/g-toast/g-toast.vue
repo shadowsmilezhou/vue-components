@@ -26,7 +26,7 @@
         props: {
             autoClose: {
                 type: [Boolean,Number],
-                default:5,
+                default:3,
                 validator(value){
                     return value === false || typeof value === 'number'
                 }
@@ -42,7 +42,7 @@
                 type:String,
                 default:'top',
                 validator(value) {
-                    return ['top','buttom','middle'].indexOf(value) >=0 ;
+                    return ['top','bottom','middle'].indexOf(value) >=0 ;
                 }
             },
             enableHtml:{
@@ -132,6 +132,7 @@
 
 
   .g-toast {
+    z-index: 100;
     position: fixed;
     left: 50%;
     transform: translateX(-50%);

@@ -48,7 +48,7 @@
                     this.$refs.popover.addEventListener('click', this.onClick);
                 } else {
                     this.$refs.popover.addEventListener('mouseenter', this.open);
-                    this.$refs.popover.addEventListener('mouseleave', this.onMouseLeaveDocument)
+                    this.$refs.popover.addEventListener('mouseout', this.onMouseLeaveDocument)
                 }
             },
             removePopoverListeners() {
@@ -77,7 +77,6 @@
                 if(this.trigger === 'click'){
                     document.removeEventListener('click', this.onClickDocument)
                 }else{
-                    console.log(1);
                     document.removeEventListener('mouseout', this.onMouseLeaveDocument)
                 }
 
@@ -92,17 +91,12 @@
                 this.close()
             },
             onMouseLeaveDocument(e){
-                console.log(1);
-                console.log(e);
-                console.log(this.$refs.popover === e.target);
                 if (this.$refs.popover &&
                     (this.$refs.popover === e.target || this.$refs.popover.contains(e.target))
                 ) { return }
-                console.log(2);
                 if (this.$refs.contentWrapper &&
                     (this.$refs.contentWrapper === e.target || this.$refs.contentWrapper.contains(e.target))
                 ) { return }
-                console.log(3);
                 this.close()
             },
 

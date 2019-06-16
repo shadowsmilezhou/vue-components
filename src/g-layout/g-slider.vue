@@ -41,7 +41,7 @@
         }
     }
     .slideChange.slider {
-        width: 3%;
+        width: 5%;
     }
     .slide-enter-active, .slide-leave-active {
         transition: all 1s;

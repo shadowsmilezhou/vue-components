@@ -62,7 +62,8 @@
     color: inherit;
     text-decoration: none;
   }
-  .g-sub-nav .g-nav-item:not(.vertical) {
+  .g-sub-nav .g-nav-item:not(.vertical)
+  {
     &.selected {
       color: $bgc-color;
       background: $grey;

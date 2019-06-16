@@ -96,6 +96,7 @@
 <style scoped lang="scss">
   @import "../../styles/_var.scss";
   .g-sub-nav {
+    z-index: 100;
     position: relative;
     cursor: pointer;
     &:not(.vertical) {

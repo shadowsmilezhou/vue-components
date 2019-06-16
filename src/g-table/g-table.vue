@@ -1,13 +1,14 @@
 <template>
   <div class="g-table-wrapper" ref="wrapper">
     <div :style="{height, overflow: 'auto'}" ref="tableWrapper">
-      <table class="g-table" :class="{bordered, compact, striped: striped}" ref="table">
+      <table class="g-table" :class="{bordered, compact, striped: striped}" ref="table" >
         <thead>
         <tr>
           <th v-if="expendField" :style="{width: '50px'}" class="g-table-center"></th>
           <th v-if="checkable" :style="{width: '50px'}" class="g-table-center">
             <input type="checkbox" @change="onChangeAllItems" ref="allChecked" :checked="areAllItemsSelected"/></th>
           <th :style="{width: '50px'}" v-if="numberVisible">#</th>
+
           <th :style="{width: column.width + 'px'}" v-for="column in columns" :key="column.field">
             <div class="g-table-header">
               {{column.text}}
@@ -17,10 +18,12 @@
             </span>
             </div>
           </th>
-          <th ref="actionsHeader" v-if="$scopedSlots.default"></th>
+          <th ref="actionsHeader" v-if="$scopedSlots.default"> 操作</th>
         </tr>
         </thead>
         <tbody>
+
+
         <template v-for="item,index in dataSource">
           <tr :key="item.id">
             <td v-if="expendField" :style="{width: '50px'}" class="g-table-center">
@@ -41,23 +44,28 @@
             </template>
 
 
-            <td v-if="$scopedSlots.default">
-              <div ref="actions" style="display: inline-block;">
+            <td v-if="$scopedSlots.default" >
+              <div ref="actions" style="display: inline-block;width: 150px">
                 <slot :item="item"></slot>
               </div>
             </td>
+
           </tr>
+
+
           <tr v-if="inExpendedIds(item.id)" :key="`${item.id}-expend`">
             <td :colspan="columns.length + expendedCellColSpan">
               {{item[expendField] || '空'}}
             </td>
           </tr>
+
+
         </template>
         </tbody>
       </table>
     </div>
     <div v-if="loading" class="g-table-loading">
-      <g-icon name="loading"/>
+      <g-icon name="waiting"/>
     </div>
   </div>
 </template>
@@ -128,12 +136,9 @@
             let table2 = this.$refs.table.cloneNode(false);
             this.table2 = table2;
             table2.classList.add('g-table-copy');
-            console.log(this.$refs.table);
             let tHead = this.$refs.table.children[0];
             let {height} = tHead.getBoundingClientRect();
             this.$refs.tableWrapper.style.marginTop = height + 'px';
-            console.log(this.height);
-            console.log(height);
             this.$refs.tableWrapper.style.height = this.height - height + 'px';
             table2.appendChild(tHead);
             this.$refs.wrapper.appendChild(table2);
@@ -266,6 +271,7 @@
         padding: 4px;
       }
     }
+
     td, th {
       border-bottom: 1px solid $grey;
       text-align: left;

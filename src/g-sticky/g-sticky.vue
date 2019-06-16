@@ -72,6 +72,7 @@
 
 <style scoped lang="scss">
   .g-sticky {
+    z-index: 100;
     &.sticky {
       position: fixed;
     }

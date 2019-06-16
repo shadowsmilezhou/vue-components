@@ -59,14 +59,10 @@
                 }
             },
             onUpdateSelected(newSelected){
-                console.log("newSelected");
-                console.log(newSelected);
                 this.$emit('update:selected', newSelected);
                 let lastItem = newSelected[newSelected.length - 1];
 
                 let simplest = (children,id) =>{
-                    console.log("children");
-                    console.log(children);
                     return children.filter(item=>item.id === id)[0]
                 };
 
@@ -85,11 +81,8 @@
 
                     let found = simplest(noChildren,id);
                     if(found){
-                        console.log('found');
-                        console.log(found);
                         return found
                     }else {
-                        console.log('not found');
                         found = simplest(hasChildren,id);
                         if(found){
                             return found
@@ -111,6 +104,7 @@
                     this.loadingItem = {};
                     let copy = JSON.parse(JSON.stringify(this.source));
                     let toUpdate = complex(copy, lastItem.id);
+                    //加上children
                     toUpdate.children = result;
                     this.$emit('update:source', copy)
 
@@ -118,7 +112,6 @@
                 if (!lastItem.isLeaf && this.loadData) {
                     this.loadData(lastItem, updateSource); // 回调:把别人传给我的函数调用一下
                     // 调回调的时候传一个函数,这个函数理论应该被调用
-
                     this.loadingItem = lastItem
                 }
             },

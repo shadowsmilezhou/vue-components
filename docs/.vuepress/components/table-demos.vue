@@ -1,17 +1,25 @@
 <template>
   <div>
-    {{selected}}
     <div style="margin: 20px;">
       <g-table :number-visible="true" :columns="columns" :data-source="dataSource" bordered :selected-items.sync="selected" :order-by.sync="orderBy"
                @update:orderBy="sorted" :loading="loading" :height="400" expend-field="description" checkable>
         <template slot-scope="slotValue">
           <button @click="edit(slotValue.item)">编辑</button>
           <button @click="view(slotValue.item)">查看</button>
-          <button>删除</button>
+          <button @click="deleteItem(slotValue.item)">删除</button>
         </template>
       </g-table>
     </div>
 
+    <div style="margin: 20px 0;">
+      <g-popover position="top" trigger="hover">
+        <template slot="content">
+          <div>查看代码</div>
+        </template>
+        <g-button style="border-color: black" @click="displayName" icon="desc" icon-position="right">表格组件</g-button>
+      </g-popover>
+      <pre v-if="nameVisible"><code>{{name}}</code></pre>
+    </div>
 
 
 
@@ -20,17 +28,19 @@
 <script>
     import GPager from '../../../src/g-pagers/g-pagers'
     import GTable from '../../../src/g-table/g-table'
+    import GButton from '../../../src/g-button/g-button'
+    import GPopover from '../../../src/g-popover/g-popover'
     export default {
         name: "demo",
-        components: {GPager, GTable},
+        components: {GPager, GTable,GButton,GPopover},
         data () {
             return {
-                currentPage: 1,
+                nameVisible: false,
                 selected: [],
                 columns: [
                     {text: '姓名', field: 'name', width: 100}, // 1
                     {text: '分数', field: 'score',width: 100},
-                    {text: '身份id', field: 'id'},
+                    {text: 'id', field: 'id',width: 100},
                 ],
                 orderBy: { // true - 开启排序，但是不确定asc desc
                     score: 'desc'
@@ -67,15 +77,34 @@
                     {"name":"周  莹","score":"78.12 ","id":"28"},
                     {"name":"宋  柯","score":"77.80 ","id":"29"},
                     {"name":"韩小雨","score":"77.67 ","id":"30"}
-                ]
+                ],
+                name:`
+       <g-table :number-visible="true" :columns="columns" :data-source="dataSource" bordered :selected-items.sync="selected" :order-by.sync="orderBy"
+               @update:orderBy="sorted" :loading="loading" :height="400" expend-field="description" checkable>
+        <template slot-scope="slotValue">
+          <button @click="edit(slotValue.item)">编辑</button>
+          <button @click="view(slotValue.item)">查看</button>
+          <button @click="deleteItem(slotValue.item)">删除</button>
+        </template>
+      </g-table>
+
+                `
             }
         },
         methods: {
+            displayName(){
+                this.nameVisible = !this.nameVisible
+            },
             edit (item) {
                 alert(`开始编辑${item.id}`)
             },
             view (item) {
                 alert(`开始查看${item.id}`)
+            },
+            deleteItem(item){
+                console.log('delete');
+                let index = this.dataSource.indexOf(item);
+              this.dataSource.splice(index,1)
             },
             sorted (data) {
                 this.loading = true;
@@ -86,7 +115,7 @@
                         this.dataSource = this.dataSource.sort((a, b) => b.score - a.score);
                     }
                     this.loading = false
-                }, 3000)
+                }, 1000)
             }
         }
     };

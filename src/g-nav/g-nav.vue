@@ -75,6 +75,7 @@
     color: $color;
     cursor: default;
     user-select: none;
+
     &.vertical {
       flex-direction: column;
       border: 1px solid $bgc-color;
